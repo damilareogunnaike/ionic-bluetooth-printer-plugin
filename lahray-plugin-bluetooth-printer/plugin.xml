@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="lahray-plugin-bluetooth-printer"
+    version="0.0.1">
+
+    <name>BluetoothPrinter</name>
+    <description>Bluetooth Printer Native Plugin</description>
+    <license>MIT</license>
+    <keywords>cordova,android, bluetooth, printer</keywords>
+
+    <!-- android -->
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="BluetoothPrinter">
+                <param name="android-package" value="raywox.com.lahray.printer.BluetoothPrinter"/>
+            </feature>
+        </config-file>
+
+        <config-file target="AndroidManifest.xml" parent="/manifest">
+            <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+            <uses-permission android:name="android.permission.BLUETOOTH"/>
+            <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+        </config-file>
+
+        <js-module src="www/android/BluetoothPrinter.js" name="BluetoothPrinter">
+            <clobbers target="bluetoothPrinter" />
+        </js-module>
+        <source-file src="src/android/AndroidPrinterSDK3.0.jar" target-dir="libs" />
+        <source-file src="src/android/BluetoothPrinter.java" target-dir="src/raywox/com/lahray/printer" />
+        <source-file src="src/android/PrintUtils.java" target-dir="src/raywox/com/lahray/printer" />
+        <source-file src="src/android/BluetoothOperation.java" target-dir="src/raywox/com/lahray/printer" />
+        <source-file src="src/android/PrinterException.java" target-dir="src/raywox/com/lahray/printer" />
+    </platform>
+</plugin>
