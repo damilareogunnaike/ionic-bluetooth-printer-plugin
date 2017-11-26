@@ -67,10 +67,10 @@ __decorate([
 BluetoothPrinter = __decorate([
     Plugin({
         pluginName: 'BluetoothPrinter',
-        plugin: '',
-        pluginRef: '',
+		plugin: 'lahray-plugin-bluetooth-printer',
+        pluginRef: 'bluetoothPrinter',
         repo: '',
-        platforms: [],
+        platforms: ['Android'],
         install: '',
     })
 ], BluetoothPrinter);
